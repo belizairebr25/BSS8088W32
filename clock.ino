@@ -1,5 +1,6 @@
 #DEFINE clkp 23
 #DEFINE resp 22
+#DEFINE cycp 12
 int delt = 10;
 
 
@@ -20,7 +21,8 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200);
   pinMode(clkp, OUTPUT);
-  pinmode(resp, OUPUT);
+  pinMode(resp, OUPUT);
+  pinMode(cycp, INPUT_PULLDOWN);
   Serial.println("Connected, Reseting CPU; Address == FFFF0");
   cpuStart();
 
@@ -28,5 +30,9 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  if()
+  if(digitalRead(cyc == HIGH)){
+    cycle();
+    delay(10);
+  }
 }
+
