@@ -2,10 +2,8 @@
 #this program assembles and formats 8088 assembly programs so they can be flashed to rom with an arduino :3 requires nasm, vim, figlet, cowsay
 #run it with "bash program_name"
 
-#clears the screen... duh
-clear_screen() {
-    echo -e "\033[H\033[J"
-}
+#clears the screen
+echo -e "\033[H\033[J"
 
 #welcome bullshit
 figlet "HIIIIIIII welcome to ma nasm-y boi :3"
@@ -30,3 +28,4 @@ echo "Byte count: $byte_count"
 echo "Formatted Hexdump, have fun copy pasting :3"
 xxd -p "$file" | tr -d '\n' | sed 's/\(..\)/\1, /g' | sed 's/, $//'
 
+echo " "
